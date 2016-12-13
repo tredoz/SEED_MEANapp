@@ -1,0 +1,22 @@
+{
+  "name": "cw_plugin",
+  "version": "0.0.1",
+  "license": "MIT",
+  "ignore": [],
+  "dependencies": {
+    "angular": "1.5.9-build.5052+sha.39a3b58",
+    "bootstrap": "3.3.7",
+    "angular-animate": "1.5.9-build.5055+sha.138fbf0",
+    "angular-animate-css": "0.0.4",
+    "angular-scroll-animate": "0.9.9",
+    "angular-sanitize": "1.5.9-build.5052+sha.39a3b58",
+    "angular-route": "1.5.9-build.5055+sha.138fbf0",
+    "font-awesome": "4.7.0",
+    "jquery": "1.12.4"
+  },
+  "homepage": "zimple.io",
+  "resolutions": {
+    "angular": "1.5.9-build.5055+sha.138fbf0",
+    "angular-mocks": "1.5.9-build.5105+sha.d80cdeb"
+  }
+}

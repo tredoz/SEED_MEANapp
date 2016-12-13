@@ -1,0 +1,39 @@
+
+<div class="system_container">
+    <div class="alert alert-danger row nga-default nga-slide-down-all" ng-repeat="error in errors">
+        <div class="col-xs-1">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        </div>
+        <div class="col-xs-10" ng-bind="error"></div>
+        <div class="col-xs-1 text-right">
+            <span class="glyphicon glyphicon-remove-circle" ng-click="removeNotification($index,'errors')"></span>
+        </div>
+    </div>
+    <div class="alert alert-info row nga-default nga-slide-down-all" ng-repeat="notification in notifications">
+        <div class="col-xs-1">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        </div>
+        <div class="col-xs-10" ng-bind="notification"></div>
+        <div class="col-xs-1 text-right">
+            <span class="glyphicon glyphicon-remove-circle" ng-click="removeNotification($index,'notifications')"></span>
+        </div>
+    </div>
+    <div class="alert alert-warning row nga-default nga-slide-down-all" ng-repeat="warning in warnings">
+        <div class="col-xs-1">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        </div>
+        <div class="col-xs-10" ng-bind="warning"></div>
+        <div class="col-xs-1 text-right">
+            <span class="glyphicon glyphicon-remove-circle"  ng-click="removeNotification($index,'warnings')"></span>
+        </div>
+    </div>
+    <div class="alert alert-success row nga-default nga-slide-down-all" ng-repeat="success in successs">
+        <div class="col-xs-1">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        </div>
+        <div class="col-xs-10" ng-bind="success"></div>
+        <div class="col-xs-1 text-right">
+            <span class="glyphicon glyphicon-remove-circle" ng-click="removeNotification($index,'successs')"></span>
+        </div>
+    </div>
+</div>
