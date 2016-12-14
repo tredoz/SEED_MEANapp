@@ -6,25 +6,19 @@ var uglify = require('gulp-uglify');
 var ccss = require('gulp-clean-css');
 var nodemon = require('gulp-nodemon');
 
-
-var tsFiles = ['app/js/config.ts', 'app/components/**/*.ts'];
-var lessFiles = ['public/css/global.less', 'app/**/style.less'];
+var tsFiles = ['public/js/config.ts', 'public/components/**/*.ts'];
+var lessFiles = ['public/css/global.less', 'public/**/style.less'];
 var cssFile = 'public/css/style.css';
 var jsFile = 'public/js/script.js';
 
-
 gulp.task('default', ['compile-less', 'compile-ts', 'watch','serve']);
-
 gulp.task('watch', ['watch-ts', 'watch-less']);
-
 gulp.task('watch-ts', function () {
     gulp.watch([tsFiles], ['compile-ts']);
 });
-
 gulp.task('watch-less', function () {
     gulp.watch(lessFiles, ['compile-less']);
 });
-
 gulp.task('compile-ts', function () {
     return gulp.src(tsFiles)
         .pipe(
@@ -39,9 +33,6 @@ gulp.task('compile-ts', function () {
         .pipe(gulp.dest('public/js/'));
 
 });
-
-
-
 gulp.task('compile-less', function () {
     gulp.src(lessFiles)
         .pipe(less())
