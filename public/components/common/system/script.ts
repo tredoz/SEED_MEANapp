@@ -32,10 +32,21 @@ angular.module('app')
             controller: 'SystemController'
         };
     }])
-    .factory('$system', ['$rootScope', function ($rootScope) {
+    .factory('$system', ['$rootScope','$http', function ($rootScope,$http) {
         return {
-            check_user_login: function () {
-                return $rootScope.$broadcast('login_check', {user_login: true});
+            load_config: function () {
+                return $http({
+                    method: 'GET',
+                    url: '/api/system/config/get'
+                }).then(function successCallback(response) {
+                    $rootScope.$broadcast('load_config',response);
+                }, function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+
+
+
             },
             warn: function (message) {
                 return $rootScope.$broadcast('warn_notification', message);

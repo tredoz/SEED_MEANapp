@@ -11,8 +11,7 @@ angular.module('app')
             }
 
         });
-        $scope.$on('login_check', function (e, login_data) {
-            console.log(login_data);
+        $scope.$on('load_config', function (e, response) {
             $scope.loading = false;
         });
     }])
