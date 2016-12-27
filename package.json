@@ -6,7 +6,8 @@
     "run" : "node ./bin/www",
     "dev_mode": "gulp",
     "setup": "npm install && bower install --force && npm update && bower update --force",
-    "create_api" : "node ./bin/create_api.js"
+    "create_api" : "node ./bin/create_api.js",
+    "create_compnent" : "node ./bin/create_component.js"
 
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "gulp-clean-css": "2.0.13",
     "bower": "1.7.9",
     "gulp-nodemon":"2.2.1",
-    "create-file" : "1.0.1"
+    "create-file" : "1.0.1",
+    "prompt": "1.0.0"
   }
 }

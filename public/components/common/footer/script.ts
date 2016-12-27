@@ -1,4 +1,4 @@
-/// <reference path="../../../../typings/angularjs/angular.d.ts" />
+/// <reference path='../../../../typings/angularjs/angular.d.ts' />
 angular.module('app')
     .controller('FooterController', ['$scope', '$system', function ($scope, $system) {
         $system.load_config();
@@ -12,7 +12,6 @@ angular.module('app')
     }])
     .directive('foot', [function () {
         return {
-            restrict: 'AEC',
             templateUrl: 'components/common/footer/view.html',
             controller: 'FooterController'
         };
@@ -20,4 +19,3 @@ angular.module('app')
     .factory('$footer', ['$rootScope', function ($rootScope) {
         return false;
     }]);
-;
