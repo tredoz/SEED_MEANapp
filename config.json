@@ -1,0 +1,7 @@
+{
+  "app_name": "MEAN App Seed",
+  "company_name": "ZIMPLE.IO",
+  "version": 0.1,
+  "description": "This is an App Seed utilizing Mongdb Express Angular and Node.",
+  "db_connect_string": "mongodb://<dbuser>:<dbpassword>@ds133348.mlab.com:33348/amaber"
+}

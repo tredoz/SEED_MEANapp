@@ -7,6 +7,16 @@ var MongoClient = require('mongodb').MongoClient;
 
 var app = express();
 
+app.config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
+date= new Date();
+app.config.year = date.getFullYear();
+
+var normalizedPath = require("path").join(__dirname, "api");
+
+require("fs").readdirSync(normalizedPath).forEach(function(file) {
+    require("./api/" + file)(app);
+});
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
@@ -16,8 +26,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //html5 mode
-app.all('*', function(req, res) {
-    res.sendFile(path.join(__dirname,'./public/index.html'));
+app.all('*', function (req, res) {
+    res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 // error handler
@@ -32,10 +42,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-// To connect using the mongo shell:
-//     mongo ds133348.mlab.com:33348/amaber -u <dbuser> -p <dbpassword>
-// To connect using a driver via the standard MongoDB URI (what's this?):
-//
-// mongodb://<dbuser>:<dbpassword>@ds133348.mlab.com:33348/amaber
-//root/welcome
+//console.log(app.config);
