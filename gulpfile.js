@@ -5,13 +5,14 @@ var ts = require('gulp-typescript');
 var uglify = require('gulp-uglify');
 var ccss = require('gulp-clean-css');
 var nodemon = require('gulp-nodemon');
+var nodeInspector = require('gulp-node-inspector');
 
 var tsFiles = ['public/js/config.ts', 'public/components/**/*.ts'];
 var lessFiles = ['public/css/global.less', 'public/**/style.less'];
 var cssFile = 'public/css/style.css';
 var jsFile = 'public/js/script.js';
 
-gulp.task('default', ['compile-less', 'compile-ts', 'watch','serve']);
+gulp.task('default', ['compile-less', 'compile-ts', 'watch', 'serve']);
 gulp.task('watch', ['watch-ts', 'watch-less']);
 gulp.task('watch-ts', function () {
     gulp.watch([tsFiles], ['compile-ts']);
@@ -42,9 +43,13 @@ gulp.task('compile-less', function () {
 });
 gulp.task('serve', function () {
     nodemon({
-        script: './bin/www'
-        , ext: 'js html'
-        , ignore: ['public/*']
-        , env: { 'NODE_ENV': 'development' }
-    })
+        script: './bin/www',
+        nodeArgs: ['--debug'],
+        // exec: 'node-inspector',
+        ext: 'js html',
+        ignore: ['public/*'],
+        env: {'NODE_ENV': 'development'}
+    });
+    gulp.src([])
+        .pipe(nodeInspector());
 });
