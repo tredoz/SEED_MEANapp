@@ -3,22 +3,32 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require("fs");
-var MongoClient = require('mongodb').MongoClient;
+var mongoose = require('mongoose');
 
 var app = express();
 
 app.config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
-date= new Date();
+date = new Date();
 app.config.year = date.getFullYear();
 
-var normalizedPath = require("path").join(__dirname, "api");
+mongoose.connect(app.config.db_connect_string);
 
-require("fs").readdirSync(normalizedPath).forEach(function(file) {
+app.db = mongoose.connection
+    .on('error', console.error.bind(console, 'connection error:'))
+    .once('open', function () {
+        console.info('connected to database');
+    });
+
+
+fs.readdirSync(path.join(__dirname, "api")).forEach(function (file) {
     require("./api/" + file)(app);
 });
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+fs.readdirSync(path.join(__dirname, "schemata")).forEach(function (file) {
+    require("./schemata/" + file)(app);
+});
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

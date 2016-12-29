@@ -6,7 +6,7 @@ angular.module('app')
             $scope.hidden = $location.path() === '/login';
         });
     }])
-    .directive('topbar', [function () {
+    .directive('topBar', [function () {
         return {
             restrict: 'AEC',
             templateUrl: 'components/common/topbar/view.html',

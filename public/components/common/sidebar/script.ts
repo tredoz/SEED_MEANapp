@@ -17,7 +17,6 @@ angular.module('app')
     }])
     .directive('sidebar', [function () {
         return {
-            restrict: 'AEC',
             templateUrl: 'components/common/sidebar/view.html',
             controller: 'SidebarController'
         };

@@ -19,3 +19,4 @@ angular.module('app')
     .factory('$footer', ['$rootScope', function ($rootScope) {
         return false;
     }]);
+

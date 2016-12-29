@@ -27,7 +27,6 @@ angular.module('app')
     }])
     .directive('system', [function () {
         return {
-            restrict: 'AEC',
             templateUrl: 'components/common/system/view.html',
             controller: 'SystemController'
         };

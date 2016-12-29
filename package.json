@@ -1,21 +1,21 @@
 {
-  "name": "ambur",
+  "name": "MEAN_APP_SEED",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "run" : "node ./bin/www",
-    "dev_mode": "gulp",
+    "run": "node ./bin/www",
     "setup": "npm install && bower install --force && npm update && bower update --force",
-    "create_api" : "node ./bin/create_api.js",
-    "create_compnent" : "node ./bin/create_component.js"
-
+    "dev_mode": "gulp",
+    "create_api": "node ./bin/create_api.js",
+    "create_component": "node ./bin/create_component.js",
+    "create_view": "node ./bin/create_view.js"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.14.0",
-    "mongodb": "~2.2",
+    "mongoose":"4.7.5",
     "gulp": "~3.9.1",
     "gulp-util": "3.0.7",
     "gulp-concat": "2.6.0",
@@ -24,8 +24,8 @@
     "gulp-uglify": "2.0.0",
     "gulp-clean-css": "2.0.13",
     "bower": "1.7.9",
-    "gulp-nodemon":"2.2.1",
-    "create-file" : "1.0.1",
+    "gulp-nodemon": "2.2.1",
+    "create-file": "1.0.1",
     "prompt": "1.0.0"
   }
 }

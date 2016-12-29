@@ -7,7 +7,7 @@ prompt.message = "";
 prompt.get([{
     properties: {
         name: {
-            description: "What the component\'s name?(New Component)"
+            description: "What the view\'s name?(New View)"
         }
     }
 }], function (err, result) {
@@ -33,15 +33,13 @@ prompt.get([{
     script_content_string += "angular.module('app')\r\n";
     script_content_string += "\t.controller('" + controller_name + "', ['$scope', '$system', function ($scope) {\r\n\r\n";
     script_content_string += "\t}])\r\n";
-    script_content_string += "\t.directive('" + camel_name + "', [function () {\r\n";
-    script_content_string += "\t\treturn {\r\n";
-    script_content_string += "\t\t\ttemplateUrl: 'components/common/" + folder_name + "/view.html',\r\n";
-    script_content_string += "\t\t\tcontroller: '" + controller_name + "'\r\n";
-    script_content_string += "\t\t};\r\n";
-    script_content_string += "\t}])\r\n";
-    script_content_string += "\t.factory('$" + class_name + "', ['$rootScope', function ($rootScope) {\r\n";
-    script_content_string += "\t\treturn false;\r\n";
-    script_content_string += "\t}]);\r\n";
+    script_content_string += "\t.config(function ($routeProvider) {\r\n";
+    script_content_string += "\t$routeProvider.when('/" + class_name + "', {\r\n";
+    script_content_string += "\t\ttemplateUrl: 'components/views/" + folder_name + "/view.html',";
+    script_content_string += "\t\tcontroller: '" + controller_name + "'";
+    script_content_string += "\t})";
+    script_content_string += "});";
+
 
     var view_content_string = '<div class="' + class_wrapper_name + '"></div>';
 
@@ -51,13 +49,13 @@ prompt.get([{
     style_content_string += "\t@import \"../../../css/shared\";\r\n";
     style_content_string += "}";
 
-    createFile('./public/components/common/' + folder_name + '/script.ts', script_content_string, function (err) {
+    createFile('./public/components/views/' + folder_name + '/script.ts', script_content_string, function (err) {
         console.log(err);
     });
-    createFile('./public/components/common/' + folder_name + '/view.html', view_content_string, function (err) {
+    createFile('./public/components/views/' + folder_name + '/view.html', view_content_string, function (err) {
         console.log(err);
     });
-    createFile('./public/components/common/' + folder_name + '/style.less', style_content_string, function (err) {
+    createFile('./public/components/views/' + folder_name + '/style.less', style_content_string, function (err) {
         console.log(err);
     });
 

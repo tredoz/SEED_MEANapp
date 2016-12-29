@@ -13,7 +13,7 @@
     "angular-route": "1.5.9-build.5055+sha.138fbf0",
     "font-awesome": "4.7.0",
     "jquery": "1.12.4",
-    "bootstrap-material-design": "4.0.2"
+    "bootstrap-material-design": "0.5.10"
   },
   "homepage": "zimple.io",
   "resolutions": {

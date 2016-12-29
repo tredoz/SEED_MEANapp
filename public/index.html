@@ -18,7 +18,7 @@
     <meta name="theme-color" content="#000000">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="js/lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="js/lib/bootstrap-material-design/dist/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="js/lib/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
     <link rel="stylesheet" href="js/lib/tether/dist/css/tether.min.css">
     <link rel="stylesheet" href="js/lib/tether/dist/css/tether-theme-basic.min.css">
     <link rel="stylesheet" href="js/lib/angular-animate-css/build/nga.all.min.css">
@@ -28,12 +28,20 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div system></div>
-    <div ng-show="!hidden && !loading" topbar class="topbar_container"></div>
-    <div ng-show="!hidden && !loading" class="col-md-1 sidebar_container" sideBar></div>
-    <div class="col-md-11" ng-view></div>
+    <div class="row">
+        <system></system>
+    </div>
+    <div class="row">
+        <top-bar ng-show="!hidden && !loading" class="topbar_container"></top-bar>
+    </div>
+    <div class="row">
+        <side-bar ng-show="!hidden && !loading" class="col-md-3 sidebar_container"></side-bar>
+        <div class="col-md-9" ng-view></div>
+    </div>
+    <div class="row">
+        <foot></foot>
+    </div>
 </div>
-<foot><foot/>
 <script type="text/javascript" src="js/lib/angular/angular.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-animate/angular-animate.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-sanitize/angular-sanitize.min.js"></script>
@@ -42,10 +50,14 @@
 <script type="text/javascript" src="js/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/lib/tether/dist/js/tether.min.js"></script>
-<script type="text/javascript"
-        src="js/lib/bootstrap-material-design/dist/bootstrap-material-design.iife.min.js"></script>
-<script type="text/javascript" src="js/lib/bootstrap-material-design/dist/bootstrap-material-design.umd.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap-material-design/dist/js/material.min.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap-material-design/dist/js/ripples.min.js"></script>
 
 <script type="text/javascript" src="js/script.js"></script>
+<script>
+    $(document).ready(function () {
+        $.material.init();
+    });
+</script>
 </body>
 </html>
