@@ -9,8 +9,7 @@ module.exports = function (app) {
     }, {
         collection: 'mean_app'
     });
-    var mean_app = mongoose.model('mean_app', schema);
-    mean_app.find(function (err, data) {
-        console.log(data);
-    });
+
+     app.models.mean_app = mongoose.model('mean_app', schema);
+
 }

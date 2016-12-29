@@ -6,6 +6,7 @@ var fs = require("fs");
 var mongoose = require('mongoose');
 
 var app = express();
+app.models = {};
 
 app.config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 date = new Date();
@@ -27,7 +28,6 @@ fs.readdirSync(path.join(__dirname, "api")).forEach(function (file) {
 fs.readdirSync(path.join(__dirname, "schemata")).forEach(function (file) {
     require("./schemata/" + file)(app);
 });
-
 
 
 app.use(bodyParser.json());
