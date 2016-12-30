@@ -1,6 +1,17 @@
 var createFile = require('create-file');
 var prompt = require('prompt');
 
+function camelize(str) {
+    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
+        return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
+    }).replace(/\s+/g, '');
+}
+
+String.prototype.replaceAll = function (search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
+
 prompt.start();
 
 prompt.message = "";
@@ -11,16 +22,6 @@ prompt.get([{
         }
     }
 }], function (err, result) {
-    String.prototype.replaceAll = function (search, replacement) {
-        var target = this;
-        return target.replace(new RegExp(search, 'g'), replacement);
-    };
-    function camelize(str) {
-        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
-            return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
-        }).replace(/\s+/g, '');
-    }
-
 
     var name = result.name == "" ? "New Component" : result.name;
     var controller_name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase().replaceAll(" ", "") + "Controller";
@@ -52,13 +53,13 @@ prompt.get([{
     style_content_string += "}";
 
     createFile('./public/components/common/' + folder_name + '/script.ts', script_content_string, function (err) {
-        console.log(err);
+        console.error(err);
     });
     createFile('./public/components/common/' + folder_name + '/view.html', view_content_string, function (err) {
-        console.log(err);
+        console.error(err);
     });
     createFile('./public/components/common/' + folder_name + '/style.less', style_content_string, function (err) {
-        console.log(err);
+        console.error(err);
     });
 
     prompt.stop();

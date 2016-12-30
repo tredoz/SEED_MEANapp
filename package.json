@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "run": "node ./bin/www",
+    "app": "node ./bin/www",
     "setup": "npm install && bower install --force && npm update && bower update --force",
     "dev_mode": "gulp",
     "create_api": "node ./bin/create_api.js",

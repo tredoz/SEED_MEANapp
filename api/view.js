@@ -1,14 +1,15 @@
 var mongoose = require('mongoose');
 module.exports = function (app) {
-    app.get('/view/:slug', function (req, res) {
-        app.models.mean_app.findOne({"slug": req.params.slug}, function (err, data) {
-            res.json(data);
-        });
-    });
-    app.get('/view', function (req, res) {
-        app.models.mean_app.find(function (err, data) {
-
-            res.json(data);
-        });
+    app.get('/view/get/:slug', function (req, res, next) {
+        if (req.params.slug === 'all') {
+            app.models.seed_app.find(function (err, data) {
+                res.json(data);
+            });
+        }
+        else {
+            app.models.seed_app.findOne({"slug": req.params.slug}, function (err, data) {
+                res.json(data);
+            });
+        }
     });
 }
