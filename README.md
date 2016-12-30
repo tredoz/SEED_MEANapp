@@ -28,5 +28,5 @@ Create a view
 ```
 Create a component
 ```
-  npm run create_componenet
+  npm run create_component
 ```
