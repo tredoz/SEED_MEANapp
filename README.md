@@ -10,6 +10,10 @@ Run the following command in the root of the project.
   npm run setup
 ```
 ## Generators
+Enter Developement Mode
+```
+  npm run dev_mode
+```
 Create rest api
 ```
   npm run create_api
