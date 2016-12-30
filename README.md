@@ -14,7 +14,7 @@ Run app
 ```
   npm run app
 ```
-Enter Developement Mode
+Enter Development Mode
 ```
   npm run dev_mode
 ```
