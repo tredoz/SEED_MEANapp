@@ -10,6 +10,10 @@ Run the following command in the root of the project.
   npm run setup
 ```
 ## Generators
+Run app
+```
+  npm run app
+```
 Enter Developement Mode
 ```
   npm run dev_mode
