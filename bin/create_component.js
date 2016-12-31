@@ -46,20 +46,17 @@ prompt.get([{
 
     var view_content_string = '<div class="' + class_wrapper_name + '"></div>';
 
-    var style_content_string = "." + class_wrapper_name + " {\r\n";
-    style_content_string += "\t@import \"../../../js/lib/bootstrap/less/bootstrap\";\r\n";
-    style_content_string += "\t@icon-font-path: \"/js/lib/bootstrap/fonts/\";\r\n";
-    style_content_string += "\t@import \"../../../css/shared\";\r\n";
-    style_content_string += "}";
+    var style_content_string = "." + class_wrapper_name + " {\r\n  @import \"..\/..\/..\/js\/lib\/bootstrap\/less\/bootstrap\";\r\n  @import \"..\/..\/..\/js\/lib\/bootstrap-material-design\/less\/bootstrap-material-design\";\r\n  @icon-font-path: \"\/js\/lib\/bootstrap\/fonts\/\";\r\n  @import \'..\/..\/..\/css\/shared\';\r\n}";
+
 
     createFile('./public/components/common/' + folder_name + '/script.ts', script_content_string, function (err) {
-        console.error(err);
+        console.error(err != undefined ? err : "");
     });
     createFile('./public/components/common/' + folder_name + '/view.html', view_content_string, function (err) {
-        console.error(err);
+        console.error(err != undefined ? err : "");
     });
     createFile('./public/components/common/' + folder_name + '/style.less', style_content_string, function (err) {
-        console.error(err);
+        console.error(err != undefined ? err : "");
     });
 
     prompt.stop();
