@@ -27,6 +27,7 @@
     "bower": "1.7.9",
     "gulp-nodemon": "2.2.1",
     "create-file": "1.0.1",
-    "prompt": "1.0.0"
+    "prompt": "1.0.0",
+    "bcryptjs": "2.4.0"
   }
 }

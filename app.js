@@ -4,8 +4,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require("fs");
 var mongoose = require('mongoose');
-
+var bodyParser = require('body-parser');
 var app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+
 app.models = {};
 
 app.config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
