@@ -43,8 +43,7 @@ prompt.get([{
 
     var view_content_string = '<div class="' + class_wrapper_name + '"></div>';
 
-    view_content_string = "<div class=\"" + class_wrapper_name + "\">\r\n    <div class=\"container\">\r\n        <header class=\"row-fluid\">\r\n            <top-bar><\/top-bar>\r\n        <\/header>\r\n        <article class=\"row-fluid content\">\r\n\r\n        <\/article>\r\n        <footer class=\"row-fluid\">\r\n            <foot><\/foot>\r\n        <\/footer>\r\n    <\/div>\r\n<\/div>";
-
+    view_content_string = "<div class=\"" + class_wrapper_name + " container-fluid\">\r\n    <header class=\"row-fluid\">\r\n                  <top-bar><\/top-bar>\r\n        <\/header>\r\n    <div class=\"row\">\r\n        <side-bar class=\"col-md-1\"><\/side-bar>\r\n        <article class=\"col-md-11 content\">\r\n\r\n  " + name + "      <\/article>\r\n        <footer class=\"row-fluid\">\r\n            <foot><\/foot>\r\n        <\/footer>\r\n    <\/div>\r\n<\/div>";
 
     var style_content_string = "." + class_wrapper_name + " {\r\n  @import \"..\/..\/..\/js\/lib\/bootstrap\/less\/bootstrap\";\r\n  @import \"..\/..\/..\/js\/lib\/bootstrap-material-design\/less\/bootstrap-material-design\";\r\n  @icon-font-path: \"\/js\/lib\/bootstrap\/fonts\/\";\r\n  @import \'..\/..\/..\/css\/shared\';\r\n}";
 
